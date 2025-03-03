@@ -17,7 +17,7 @@ function getComputerChoice() {
         return computerChoice = 'Paper';
     } else {
         console.log('Computer Choosed: Scissors');
-         return computerChoice = 'Scissors';
+        return computerChoice = 'Scissors';
     }
 }
 
@@ -41,18 +41,14 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice == 'Rock' && computerChoice == 'Scissors') {
+    if (humanChoice === computerChoice) {
+    console.log('Tie, no one gets score.');
+    }
+    else if ((humanChoice === 'Rock' && computerChoice === 'Scissors') || (humanChoice === 'Paper' && computerChoice === 'Rock') || (humanChoice === 'Scissor' && computerChoice === 'Paper')) {
         console.log('You Won!');
         humanScore = humanScore + 1;
-    } else if (humanChoice == 'Paper' && computerChoice == 'Rock') {
-        console.log('You Won!');
-        humanScore = humanScore + 1;
-    } else if (humanChoice == 'Scissor' && computerChoice == 'Paper') {
-        console.log('You Won!');
-        humanScore = humanScore + 1;
-    } else if (humanChoice == computerChoice) {
-        console.log('Tie, no one gets score.');
-    } else {
+    }
+    else {
         console.log('Computer Won!');
         computerScore = computerScore +1;
     }
@@ -61,9 +57,9 @@ function playRound(humanChoice, computerChoice) {
 
 
 
-for (i = 0; i <= 5; i++) {
-    const humanSelection = getComputerChoice();
-    const computerSelection = getHumanChoice();
+for (i = 0; i <= 4; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     playRound(humanSelection,computerSelection);
 
 }
